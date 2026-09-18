@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jin Wan Kim — Data Analyst Portfolio</title>
+<meta name="description" content="Data analyst portfolio of Jin Wan Kim: housing price analysis, SQL execution plans, predictive modelling, feature engineering and baseline comparison.">
+<style>
+:root{
+  --ink:#141414;
+  --muted:#565656;
+  --line:#e3e3e3;
+  --accent:#0b5394;
+  --bg:#ffffff;
+  --panel:#fafafa;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  overflow-wrap:break-word;
+}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.9em;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:1px 4px;
+  overflow-wrap:anywhere;
+}
+.wrap{max-width:1040px;margin:0 auto;padding:56px 24px 72px}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+header{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:34px}
+.eyebrow{
+  margin:0 0 10px;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--accent);
+}
+h1{margin:0 0 6px;font-size:34px;line-height:1.2;letter-spacing:-.01em}
+.sub{margin:0 0 14px;color:var(--muted);font-size:16px}
+.contact{margin:0;font-size:15px;color:var(--muted)}
+.contact a{text-decoration:none}
+.contact a:hover{text-decoration:underline}
+.sep{color:var(--line);padding:0 6px}
+
+.intro{max-width:64ch;margin:0 0 42px;font-size:17.5px}
+
+h2.section{
+  margin:0 0 18px;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--muted);
+}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.card{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:22px 22px 20px;
+  background:var(--bg);
+  display:flex;
+  flex-direction:column;
+}
+.card h3{margin:0 0 4px;font-size:19px;line-height:1.3}
+.label{
+  display:inline-block;
+  margin:0 0 3px;
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.tech{margin:0 0 14px;font-size:14px;color:var(--muted)}
+.card p.body{margin:0 0 16px;font-size:16px}
+figure{margin:0 0 16px}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:var(--panel)}
+figcaption{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.5}
+.btn{
+  align-self:flex-start;
+  margin-top:auto;
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid var(--accent);
+  border-radius:4px;
+  color:var(--accent);
+  text-decoration:none;
+  font-size:14.5px;
+  font-weight:600;
+}
+.btn:hover{background:var(--accent);color:#fff}
+
+ul.more{list-style:none;margin:44px 0 0;padding:0;border-top:1px solid var(--line)}
+ul.more li{padding:20px 0;border-bottom:1px solid var(--line)}
+ul.more h3{margin:0 0 3px;font-size:17px}
+ul.more p.body{margin:0 0 8px;font-size:15.5px;color:var(--ink)}
+ul.more .tech{margin:0 0 8px}
+ul.more a.plain{font-size:14.5px;font-weight:600;text-decoration:none}
+ul.more a.plain:hover{text-decoration:underline}
+
+footer{margin-top:44px;padding-top:22px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+@media (max-width:760px){
+  .wrap{padding:38px 18px 56px}
+  .grid{grid-template-columns:1fr;gap:22px}
+  h1{font-size:29px}
+  body{font-size:16.5px}
+  .sep{display:block;height:0;overflow:hidden;padding:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Data Analyst Portfolio</p>
+  <h1>Jin Wan Kim</h1>
+  <p class="sub">Final-year BSc Computer Science (Big Data), UOW at SIM Singapore &middot; Graduating March 2027</p>
+  <p class="contact">
+    <a href="https://www.linkedin.com/in/jinwankim98">linkedin.com/in/jinwankim98</a><span class="sep">&middot;</span><a href="https://github.com/JinWanKim98">github.com/JinWanKim98</a><span class="sep">&middot;</span><a href="mailto:kimjinwan060@gmail.com">kimjinwan060@gmail.com</a>
+  </p>
+</header>
+
+<p class="intro">
+  I am in my final year of a BSc in Computer Science (Big Data) at UOW, SIM Singapore, and I am
+  looking for a data analyst role. I work mostly in Python and SQL, with Power BI for dashboards.
+  The projects below include a resale-housing analysis of 216,375 Singapore transactions, execution
+  plans captured before and after index changes on ten PostgreSQL queries, and a precision&ndash;recall
+  comparison of models for flagging late shipments. Each one links to its repository, where the
+  method and its limits are written out.
+</p>
+
+<h2 class="section">Selected projects</h2>
+
+<div class="grid">
+
+  <article class="card">
+    <span class="label">Adjusted comparisons</span>
+    <h3>Singapore HDB resale analysis</h3>
+    <p class="tech">Python &middot; pandas &middot; matplotlib &middot; Power BI</p>
+    <p class="body">
+      216,375 resale transactions from January 2017 to September 2025. How strongly storey height
+      tracks price depends on what you hold constant: comparing 4-room flats within the same town
+      and year gives a slope of about SGD 87 per sqm per floor, against about SGD 132.8 before that
+      adjustment, so the raw slope is roughly 53% larger. Ten floors at the adjusted slope come to
+      15.7% of the sample mean price per sqm, which is an association across the sample rather than
+      a return on any one flat.
+    </p>
+    <figure>
+      <img src="images/price_by_floor.png" alt="Bar chart of average price per sqm by storey range for 4-room HDB flats, with the number of sales printed above each bar, falling from 15,358 in the lowest band to 14 in the highest. Bars with fewer than 200 sales are grey.">
+      <figcaption>Average price per sqm and transaction counts for 4-room flats, before adjustment for town and year.</figcaption>
+    </figure>
+    <a class="btn" href="https://github.com/JinWanKim98/singapore-hdb-analysis">View project on GitHub</a>
+  </article>
+
+  <article class="card">
+    <span class="label">Query plans</span>
+    <h3>PostgreSQL tuning, PL/pgSQL and MongoDB</h3>
+    <p class="tech">PostgreSQL &middot; PL/pgSQL &middot; MongoDB</p>
+    <p class="body">
+      Ten queries supplied by the course, with execution plans captured before and after the indexes
+      I designed. Two of them kept a sequential scan after indexing and reported the same 7,836
+      shared buffer accesses on both runs: the index existed and the planner did not choose it here.
+      Reading the plan, rather than the timing, is what shows that.
+    </p>
+    <a class="btn" href="https://github.com/JinWanKim98/sql-postgres-mongodb">View project on GitHub</a>
+  </article>
+
+  <article class="card">
+    <span class="label">Precision&ndash;recall trade-off</span>
+    <h3>Predicting late shipments</h3>
+    <p class="tech">Python &middot; scikit-learn &middot; Keras</p>
+    <p class="body">
+      10,999 e-commerce orders, where the target value 1 means late. Flagging every order gives 100%
+      recall at 59.68% accuracy across 2,200 orders, which is why recall on its own says little;
+      Gaussian Naive Bayes flags 582 orders at 0.955 precision, and the small neural network flags
+      986 at 0.783. Which operating point is right depends on follow-up capacity and the cost of a
+      missed delay, and the dataset supplies neither.
+    </p>
+    <figure>
+      <img src="images/model_comparison.png" alt="Two bar charts. Left: test accuracy for the majority baseline, GaussianNB and the neural network, with a dashed line at the baseline level. Right: recall and precision side by side for each model, the baseline highest on recall and GaussianNB highest on precision.">
+      <figcaption>Test accuracy on the same test rows, and the recall&ndash;precision swap between the three models.</figcaption>
+    </figure>
+    <a class="btn" href="https://github.com/JinWanKim98/shipping-delay-prediction">View project on GitHub</a>
+  </article>
+
+  <article class="card">
+    <span class="label">Feature engineering</span>
+    <h3>Rain in Australia</h3>
+    <p class="tech">Python &middot; pandas &middot; scikit-learn</p>
+    <p class="body">
+      A four-person group project on 145,460 daily Australian weather observations; my part was the
+      exploration, cleaning, derived features and the preprocessing pipeline, while other members did
+      the modelling. Plotting missing rate against target correlation showed that missingness alone
+      is not a reason to discard a column: the sunshine and cloud readings are among the most
+      incomplete and still show a useful association with next-day rain, while <code>Evaporation</code>
+      is similarly incomplete and sits low on that association; I dropped it as an exploratory choice.
+      I put the features I derived behind a <code>WeatherFeatureAdder(add_features=True/False)</code>
+      switch so the model search decided whether to keep them, and across three model families the
+      controlled diagnostic came out mixed, so it does not establish a consistent improvement.
+    </p>
+    <figure>
+      <img src="images/missing_rate_vs_predictive_power.png" alt="Scatter plot of weather columns by percentage of missing values against absolute correlation with RainTomorrow, on training data. Columns missing more than 30% are marked in red: Sunshine, Cloud3pm and Cloud9am sit high on the association axis, while Evaporation sits low.">
+      <figcaption>Training-data missing rate against absolute correlation with RainTomorrow. Red points are columns missing more than 30%.</figcaption>
+    </figure>
+    <a class="btn" href="https://github.com/JinWanKim98/weather-feature-engineering">View project on GitHub</a>
+  </article>
+
+  <article class="card">
+    <span class="label">Baseline comparison</span>
+    <h3>Wine quality regression</h3>
+    <p class="tech">Python &middot; scikit-learn</p>
+    <p class="body">
+      A five-person group project; I implemented the linear regression baseline &mdash; its pipeline,
+      its small parameter search and its performance report &mdash; while other members built the
+      random forest, gradient boosting and the classification side. Exact duplicate rows were removed
+      first, leaving 1,359 red and 3,961 white observations before an 80/20 split. On white wine the
+      random forest cut test RMSE by about 6.6% against OLS while carrying a much larger training
+      gap; on red, the 0.0010 RMSE between the two ensembles is too small to rank them from a single
+      split.
+    </p>
+    <figure>
+      <img src="images/coefficients_linear_regression_red.png" alt="Horizontal bar chart of standardised linear-regression coefficients for red wine. Alcohol has the largest positive coefficient and volatile acidity the largest negative one; residual sugar and density are near zero.">
+      <figcaption>Standardised OLS coefficients for red wine. Each bar is a change of one training standard deviation, with the other model inputs held fixed.</figcaption>
+    </figure>
+    <a class="btn" href="https://github.com/JinWanKim98/wine-quality-regression">View project on GitHub</a>
+  </article>
+
+</div>
+
+<ul class="more">
+  <li>
+    <span class="label">ID3 implementation</span>
+    <h3>ML from scratch</h3>
+    <p class="tech">Python &middot; pandas &middot; scikit-learn</p>
+    <p class="body">
+      A categorical ID3 decision tree implemented without a machine-learning library, following
+      course lab material adapted from Peter Harrington's <em>Machine Learning in Action</em>, then
+      compared with scikit-learn using settings chosen on a validation split.
+    </p>
+    <a class="plain" href="https://github.com/JinWanKim98/ml-from-scratch">View project on GitHub</a>
+  </li>
+  <li>
+    <span class="label">Requirements &amp; teamwork</span>
+    <h3>Online fundraising platform</h3>
+    <p class="tech">Flask &middot; SQLite (back end by the team)</p>
+    <p class="body">
+      Six-person project with 42 user stories; I was on the documentation team and wrote user stories
+      and use case descriptions #37&ndash;42, plus the BCE class and sequence diagrams for 14 use cases.
+    </p>
+    <a class="plain" href="https://github.com/JinWanKim98/fundraising-system-sdlc">View project on GitHub</a>
+  </li>
+  <li>
+    <span class="label">Runtime &amp; template dispatch</span>
+    <h3>C++ polymorphism, two ways</h3>
+    <p class="tech">C++11 &middot; make</p>
+    <p class="body">
+      Three separate CSCI 251 assignments &mdash; file parsing, a shape hierarchy using virtual
+      dispatch, and function templates with explicit specialisations &mdash; which are different
+      problems rather than a controlled comparison.
+    </p>
+    <a class="plain" href="https://github.com/JinWanKim98/cpp-polymorphism-two-ways">View project on GitHub</a>
+  </li>
+  <li>
+    <span class="label">OOP development</span>
+    <h3>Python OOP across two semesters</h3>
+    <p class="tech">Python (standard library)</p>
+    <p class="body">
+      How my use of classes changed between a 2024 group tour-booking project, registered to five
+      with four contributing code, and three individual 2025 assignments.
+    </p>
+    <a class="plain" href="https://github.com/JinWanKim98/python-oop">View project on GitHub</a>
+  </li>
+</ul>
+
+<footer>
+  <a href="https://github.com/JinWanKim98">github.com/JinWanKim98</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/in/jinwankim98">linkedin.com/in/jinwankim98</a><span class="sep">&middot;</span><a href="mailto:kimjinwan060@gmail.com">kimjinwan060@gmail.com</a>
+</footer>
+
+</div>
+</body>
+</html>
