@@ -38,7 +38,7 @@ code{
 a{color:var(--accent)}
 a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-header{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:34px}
+header{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:26px}
 .eyebrow{
   margin:0 0 10px;
   font-size:13px;
@@ -54,7 +54,7 @@ h1{margin:0 0 6px;font-size:34px;line-height:1.2;letter-spacing:-.01em}
 .contact a:hover{text-decoration:underline}
 .sep{color:var(--line);padding:0 6px}
 
-.intro{max-width:64ch;margin:0 0 42px;font-size:17.5px}
+.intro{max-width:64ch;margin:0 0 30px;font-size:17px}
 
 h2.section{
   margin:0 0 18px;
@@ -86,6 +86,8 @@ h2.section{
 }
 .tech{margin:0 0 14px;font-size:14px;color:var(--muted)}
 .card p.body{margin:0 0 16px;font-size:16px}
+.chart-link{display:block;cursor:zoom-in}
+.zoom-hint{display:block;margin-top:4px;color:var(--accent)}
 figure{margin:0 0 16px}
 figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:var(--panel)}
 figcaption{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.5}
@@ -116,7 +118,8 @@ footer a{text-decoration:none}
 footer a:hover{text-decoration:underline}
 
 @media (max-width:760px){
-  .wrap{padding:38px 18px 56px}
+  .wrap{padding:28px 18px 48px}
+  .intro{font-size:16px;margin-bottom:28px}
   .grid{grid-template-columns:1fr;gap:22px}
   h1{font-size:29px}
   body{font-size:16.5px}
@@ -137,12 +140,7 @@ footer a:hover{text-decoration:underline}
 </header>
 
 <p class="intro">
-  I am in my final year of a BSc in Computer Science (Big Data) at UOW, SIM Singapore, and I am
-  looking for a data analyst role. I work mostly in Python and SQL, with Power BI for dashboards.
-  The projects below include a resale-housing analysis of 216,375 Singapore transactions, execution
-  plans captured before and after index changes on ten PostgreSQL queries, and a precision&ndash;recall
-  comparison of models for flagging late shipments. Each one links to its repository, where the
-  method and its limits are written out.
+  I’m a final-year Computer Science (Big Data) student at UOW in Singapore, seeking a data analyst role. I use Python, SQL and Power BI to explore data, compare results and communicate findings. These projects cover housing prices, query plans and predictive modelling, with my contribution described in each repository.
 </p>
 
 <h2 class="section">Selected projects</h2>
@@ -154,16 +152,11 @@ footer a:hover{text-decoration:underline}
     <h3>Singapore HDB resale analysis</h3>
     <p class="tech">Python &middot; pandas &middot; matplotlib &middot; Power BI</p>
     <p class="body">
-      216,375 resale transactions from January 2017 to September 2025. How strongly storey height
-      tracks price depends on what you hold constant: comparing 4-room flats within the same town
-      and year gives a slope of about SGD 87 per sqm per floor, against about SGD 132.8 before that
-      adjustment, so the raw slope is roughly 53% larger. Ten floors at the adjusted slope come to
-      15.7% of the sample mean price per sqm, which is an association across the sample rather than
-      a return on any one flat.
+      I analysed 216,375 Singapore resale transactions, checking how comparisons change when location and year are taken into account. For 4-room flats, the storey–price slope falls from about SGD 132.8 to SGD 87 per sqm per floor after adjustment for town and year. This is an association, not a causal premium.
     </p>
     <figure>
-      <img src="images/price_by_floor.png" alt="Bar chart of average price per sqm by storey range for 4-room HDB flats, with the number of sales printed above each bar, falling from 15,358 in the lowest band to 14 in the highest. Bars with fewer than 200 sales are grey.">
-      <figcaption>Average price per sqm and transaction counts for 4-room flats, before adjustment for town and year.</figcaption>
+      <a class="chart-link" href="images/price_by_floor.png" target="_blank" rel="noopener"><img src="images/price_by_floor.png" alt="Bar chart of average price per sqm by storey range for 4-room HDB flats, with the number of sales printed above each bar: 15,358 in the lowest band and 14 in the highest. Bars with fewer than 200 sales are grey."></a>
+      <figcaption>Average price per sqm and transaction counts for 4-room flats, before adjustment for town and year. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
     </figure>
     <a class="btn" href="https://github.com/JinWanKim98/singapore-hdb-analysis">View project on GitHub</a>
   </article>
@@ -173,10 +166,7 @@ footer a:hover{text-decoration:underline}
     <h3>PostgreSQL tuning, PL/pgSQL and MongoDB</h3>
     <p class="tech">PostgreSQL &middot; PL/pgSQL &middot; MongoDB</p>
     <p class="body">
-      Ten queries supplied by the course, with execution plans captured before and after the indexes
-      I designed. Two of them kept a sequential scan after indexing and reported the same 7,836
-      shared buffer accesses on both runs: the index existed and the planner did not choose it here.
-      Reading the plan, rather than the timing, is what shows that.
+      I designed indexes for ten course-supplied queries and compared their execution plans before and after. Two queries retained sequential scans despite the new indexes. The plans show when the planner used an index, while buffer accesses and timings help explain the work involved. The repository also includes PL/pgSQL and MongoDB exercises.
     </p>
     <a class="btn" href="https://github.com/JinWanKim98/sql-postgres-mongodb">View project on GitHub</a>
   </article>
@@ -186,15 +176,11 @@ footer a:hover{text-decoration:underline}
     <h3>Predicting late shipments</h3>
     <p class="tech">Python &middot; scikit-learn &middot; Keras</p>
     <p class="body">
-      10,999 e-commerce orders, where the target value 1 means late. Flagging every order gives 100%
-      recall at 59.68% accuracy across 2,200 orders, which is why recall on its own says little;
-      Gaussian Naive Bayes flags 582 orders at 0.955 precision, and the small neural network flags
-      986 at 0.783. Which operating point is right depends on follow-up capacity and the cost of a
-      missed delay, and the dataset supplies neither.
+      On a 2,200-order test set, Gaussian Naive Bayes flags 582 orders with 95.5% precision; the neural network flags 986 with 78.3% precision. I compared both with a baseline that flags every order. The results show why accuracy alone cannot choose a follow-up strategy; capacity and costs are not supplied.
     </p>
     <figure>
-      <img src="images/model_comparison.png" alt="Two bar charts. Left: test accuracy for the majority baseline, GaussianNB and the neural network, with a dashed line at the baseline level. Right: recall and precision side by side for each model, the baseline highest on recall and GaussianNB highest on precision.">
-      <figcaption>Test accuracy on the same test rows, and the recall&ndash;precision swap between the three models.</figcaption>
+      <a class="chart-link" href="images/model_comparison.png" target="_blank" rel="noopener"><img src="images/model_comparison.png" alt="Two bar charts. Left: test accuracy for the majority baseline, GaussianNB and the neural network, with a dashed line at the baseline level. Right: recall and precision side by side for each model, the baseline highest on recall and GaussianNB highest on precision."></a>
+      <figcaption>Test accuracy on the same test rows, and the recall&ndash;precision swap between the three models. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
     </figure>
     <a class="btn" href="https://github.com/JinWanKim98/shipping-delay-prediction">View project on GitHub</a>
   </article>
@@ -204,19 +190,11 @@ footer a:hover{text-decoration:underline}
     <h3>Rain in Australia</h3>
     <p class="tech">Python &middot; pandas &middot; scikit-learn</p>
     <p class="body">
-      A four-person group project on 145,460 daily Australian weather observations; my part was the
-      exploration, cleaning, derived features and the preprocessing pipeline, while other members did
-      the modelling. Plotting missing rate against target correlation showed that missingness alone
-      is not a reason to discard a column: the sunshine and cloud readings are among the most
-      incomplete and still show a useful association with next-day rain, while <code>Evaporation</code>
-      is similarly incomplete and sits low on that association; I dropped it as an exploratory choice.
-      I put the features I derived behind a <code>WeatherFeatureAdder(add_features=True/False)</code>
-      switch so the model search decided whether to keep them, and across three model families the
-      controlled diagnostic came out mixed, so it does not establish a consistent improvement.
+      In this four-person project, I handled exploration, cleaning, derived features and preprocessing for 145,460 weather observations; teammates handled modelling. I compared missingness with target association before dropping columns, and made derived features optional for model comparison. Their measured effect was small and mixed across models.
     </p>
     <figure>
-      <img src="images/missing_rate_vs_predictive_power.png" alt="Scatter plot of weather columns by percentage of missing values against absolute correlation with RainTomorrow, on training data. Columns missing more than 30% are marked in red: Sunshine, Cloud3pm and Cloud9am sit high on the association axis, while Evaporation sits low.">
-      <figcaption>Training-data missing rate against absolute correlation with RainTomorrow. Red points are columns missing more than 30%.</figcaption>
+      <a class="chart-link" href="images/missing_rate_vs_predictive_power.png" target="_blank" rel="noopener"><img src="images/missing_rate_vs_predictive_power.png" alt="Scatter plot of weather columns by percentage of missing values against absolute correlation with RainTomorrow, on training data. Columns missing more than 30% are marked in red: Sunshine, Cloud3pm and Cloud9am sit high on the association axis, while Evaporation sits low."></a>
+      <figcaption>Training-data missing rate against absolute correlation with RainTomorrow. Red points are columns missing more than 30%. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
     </figure>
     <a class="btn" href="https://github.com/JinWanKim98/weather-feature-engineering">View project on GitHub</a>
   </article>
@@ -226,17 +204,11 @@ footer a:hover{text-decoration:underline}
     <h3>Wine quality regression</h3>
     <p class="tech">Python &middot; scikit-learn</p>
     <p class="body">
-      A five-person group project; I implemented the linear regression baseline &mdash; its pipeline,
-      its small parameter search and its performance report &mdash; while other members built the
-      random forest, gradient boosting and the classification side. Exact duplicate rows were removed
-      first, leaving 1,359 red and 3,961 white observations before an 80/20 split. On white wine the
-      random forest cut test RMSE by about 6.6% against OLS while carrying a much larger training
-      gap; on red, the 0.0010 RMSE between the two ensembles is too small to rank them from a single
-      split.
+      In this five-person project, I implemented the linear regression pipeline, a small parameter search and evaluation; teammates built the other models. On white wine, the team’s random forest reduced test RMSE by about 6.6% versus my baseline despite a larger train–test gap. A smaller gap alone did not identify the more accurate model.
     </p>
     <figure>
-      <img src="images/coefficients_linear_regression_red.png" alt="Horizontal bar chart of standardised linear-regression coefficients for red wine. Alcohol has the largest positive coefficient and volatile acidity the largest negative one; residual sugar and density are near zero.">
-      <figcaption>Standardised OLS coefficients for red wine. Each bar is a change of one training standard deviation, with the other model inputs held fixed.</figcaption>
+      <a class="chart-link" href="images/coefficients_linear_regression_red.png" target="_blank" rel="noopener"><img src="images/coefficients_linear_regression_red.png" alt="Horizontal bar chart of standardised linear-regression coefficients for red wine. Alcohol has the largest positive coefficient and volatile acidity the largest negative one; residual sugar and density are near zero."></a>
+      <figcaption>Standardised OLS coefficients for red wine. Each bar shows the change in predicted quality for a one-standard-deviation increase in that feature, holding other inputs fixed. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
     </figure>
     <a class="btn" href="https://github.com/JinWanKim98/wine-quality-regression">View project on GitHub</a>
   </article>
@@ -249,9 +221,7 @@ footer a:hover{text-decoration:underline}
     <h3>ML from scratch</h3>
     <p class="tech">Python &middot; pandas &middot; scikit-learn</p>
     <p class="body">
-      A categorical ID3 decision tree implemented without a machine-learning library, following
-      course lab material adapted from Peter Harrington's <em>Machine Learning in Action</em>, then
-      compared with scikit-learn using settings chosen on a validation split.
+      A categorical ID3 decision tree implemented with pandas and the standard library, following course lab material adapted from Peter Harrington’s <em>Machine Learning in Action</em>. I compared it with scikit-learn using settings chosen on a validation split.
     </p>
     <a class="plain" href="https://github.com/JinWanKim98/ml-from-scratch">View project on GitHub</a>
   </li>
@@ -260,8 +230,7 @@ footer a:hover{text-decoration:underline}
     <h3>Online fundraising platform</h3>
     <p class="tech">Flask &middot; SQLite (back end by the team)</p>
     <p class="body">
-      Six-person project with 42 user stories; I was on the documentation team and wrote user stories
-      and use case descriptions #37&ndash;42, plus the BCE class and sequence diagrams for 14 use cases.
+      In a six-person project, I wrote six user stories and use case descriptions, plus BCE class and sequence diagrams for 14 use cases. My original role was on the documentation team; the programming team implemented the Python back end.
     </p>
     <a class="plain" href="https://github.com/JinWanKim98/fundraising-system-sdlc">View project on GitHub</a>
   </li>
@@ -270,9 +239,7 @@ footer a:hover{text-decoration:underline}
     <h3>C++ polymorphism, two ways</h3>
     <p class="tech">C++11 &middot; make</p>
     <p class="body">
-      Three separate CSCI 251 assignments &mdash; file parsing, a shape hierarchy using virtual
-      dispatch, and function templates with explicit specialisations &mdash; which are different
-      problems rather than a controlled comparison.
+      Three individual assignments covering file parsing, a shape hierarchy with virtual dispatch, and geometry operations using function templates and explicit specialisations.
     </p>
     <a class="plain" href="https://github.com/JinWanKim98/cpp-polymorphism-two-ways">View project on GitHub</a>
   </li>
@@ -281,8 +248,7 @@ footer a:hover{text-decoration:underline}
     <h3>Python OOP across two semesters</h3>
     <p class="tech">Python (standard library)</p>
     <p class="body">
-      How my use of classes changed between a 2024 group tour-booking project, registered to five
-      with four contributing code, and three individual 2025 assignments.
+      A 2024 group tour-booking project and three individual 2025 assignments covering composition, abstract classes and CSV validation. Together they show how I organised data and behaviour across different tasks.
     </p>
     <a class="plain" href="https://github.com/JinWanKim98/python-oop">View project on GitHub</a>
   </li>
