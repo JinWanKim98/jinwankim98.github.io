@@ -166,7 +166,7 @@ footer a:hover{text-decoration:underline}
     <h3>PostgreSQL tuning, PL/pgSQL and MongoDB</h3>
     <p class="tech">PostgreSQL &middot; PL/pgSQL &middot; MongoDB</p>
     <p class="body">
-      I designed indexes for ten course-supplied queries and compared their execution plans before and after. Two queries retained sequential scans despite the new indexes. The plans show when the planner used an index, while buffer accesses and timings help explain the work involved. The repository also includes PL/pgSQL and MongoDB exercises.
+      I designed indexes for ten course-supplied queries and compared their execution plans before and after. Two retained sequential scans despite the new indexes, reporting the same 7,836 shared buffer accesses on both runs: the index existed, but the planner did not choose it here. The repository also includes PL/pgSQL and MongoDB exercises.
     </p>
     <a class="btn" href="https://github.com/JinWanKim98/sql-postgres-mongodb">View project on GitHub</a>
   </article>
@@ -221,7 +221,7 @@ footer a:hover{text-decoration:underline}
     <h3>ML from scratch</h3>
     <p class="tech">Python &middot; pandas &middot; scikit-learn</p>
     <p class="body">
-      A categorical ID3 decision tree implemented with pandas and the standard library, following course lab material adapted from Peter Harrington’s <em>Machine Learning in Action</em>. I compared it with scikit-learn using settings chosen on a validation split.
+      A categorical ID3 decision tree implemented without a machine-learning library, using pandas and the standard library, following course lab material adapted from Peter Harrington’s <em>Machine Learning in Action</em>. I compared it with scikit-learn using settings chosen on a validation split.
     </p>
     <a class="plain" href="https://github.com/JinWanKim98/ml-from-scratch">View project on GitHub</a>
   </li>
@@ -230,7 +230,7 @@ footer a:hover{text-decoration:underline}
     <h3>Online fundraising platform</h3>
     <p class="tech">Flask &middot; SQLite (back end by the team)</p>
     <p class="body">
-      In a six-person project, I wrote six user stories and use case descriptions, plus BCE class and sequence diagrams for 14 use cases. My original role was on the documentation team; the programming team implemented the Python back end.
+      In a six-person project with 42 user stories, I wrote six of them with their use case descriptions, plus BCE class and sequence diagrams for 14 use cases. My original role was on the documentation team; the programming team implemented the Python back end.
     </p>
     <a class="plain" href="https://github.com/JinWanKim98/fundraising-system-sdlc">View project on GitHub</a>
   </li>
@@ -248,7 +248,7 @@ footer a:hover{text-decoration:underline}
     <h3>Python OOP across two semesters</h3>
     <p class="tech">Python (standard library)</p>
     <p class="body">
-      A 2024 group tour-booking project and three individual 2025 assignments covering composition, abstract classes and CSV validation. Together they show how I organised data and behaviour across different tasks.
+      Three individual 2025 assignments covering composition, abstract classes and CSV validation, alongside a 2024 tour-booking project that was group work: five registered, four contributing code.
     </p>
     <a class="plain" href="https://github.com/JinWanKim98/python-oop">View project on GitHub</a>
   </li>
