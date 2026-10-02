@@ -106,6 +106,8 @@ figcaption{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.5}
 .btn:hover{background:var(--accent);color:#fff}
 
 ul.more{list-style:none;margin:44px 0 0;padding:0;border-top:1px solid var(--line)}
+h2.more-head{margin-top:48px}
+h2.more-head + ul.more{margin-top:0}
 ul.more li{padding:20px 0;border-bottom:1px solid var(--line)}
 ul.more h3{margin:0 0 3px;font-size:17px}
 ul.more p.body{margin:0 0 8px;font-size:15.5px;color:var(--ink)}
@@ -176,7 +178,7 @@ footer a:hover{text-decoration:underline}
     <h3>Predicting late shipments</h3>
     <p class="tech">Python &middot; scikit-learn &middot; Keras</p>
     <p class="body">
-      On a 2,200-order test set, Gaussian Naive Bayes flags 582 orders with 95.5% precision; the neural network flags 986 with 78.3% precision. I compared both with a baseline that flags every order. The results show why accuracy alone cannot choose a follow-up strategy; capacity and costs are not supplied.
+      On a 2,200-order test set, Gaussian Naive Bayes flags 582 orders with 95.5% precision; the neural network flags 986 with 78.3% precision. I compared both with a baseline that flags every order. The results show why accuracy alone cannot choose a follow-up strategy: which model fits depends on how many alerts a team can follow up on.
     </p>
     <figure>
       <a class="chart-link" href="images/model_comparison.png" target="_blank" rel="noopener"><img src="images/model_comparison.png" alt="Two bar charts. Left: test accuracy for the majority baseline, GaussianNB and the neural network, with a dashed line at the baseline level. Right: recall and precision side by side for each model, the baseline highest on recall and GaussianNB highest on precision."></a>
@@ -199,23 +201,20 @@ footer a:hover{text-decoration:underline}
     <a class="btn" href="https://github.com/JinWanKim98/weather-feature-engineering">View project on GitHub</a>
   </article>
 
-  <article class="card">
+</div>
+
+<h2 class="section more-head">More projects</h2>
+
+<ul class="more">
+  <li>
     <span class="label">Baseline comparison</span>
     <h3>Wine quality regression</h3>
     <p class="tech">Python &middot; scikit-learn</p>
     <p class="body">
-      In this five-person project, I implemented the linear regression pipeline, a small parameter search and evaluation; teammates built the other models. On white wine, the team’s random forest reduced test RMSE by about 6.6% versus my baseline despite a larger train–test gap. A smaller gap alone did not identify the more accurate model.
+      In this five-person project, I implemented the linear regression pipeline, a small parameter search and evaluation; teammates built the other models.
     </p>
-    <figure>
-      <a class="chart-link" href="images/coefficients_linear_regression_red.png" target="_blank" rel="noopener"><img src="images/coefficients_linear_regression_red.png" alt="Horizontal bar chart of standardised linear-regression coefficients for red wine. Alcohol has the largest positive coefficient and volatile acidity the largest negative one; residual sugar and density are near zero."></a>
-      <figcaption>Standardised OLS coefficients for red wine. Each bar shows the change in predicted quality for a one-standard-deviation increase in that feature, holding other inputs fixed. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
-    </figure>
-    <a class="btn" href="https://github.com/JinWanKim98/wine-quality-regression">View project on GitHub</a>
-  </article>
-
-</div>
-
-<ul class="more">
+    <a class="plain" href="https://github.com/JinWanKim98/wine-quality-regression">View project on GitHub</a>
+  </li>
   <li>
     <span class="label">ID3 implementation</span>
     <h3>ML from scratch</h3>
