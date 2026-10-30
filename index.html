@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jin Wan Kim — Data Analyst Portfolio</title>
-<meta name="description" content="Data analyst portfolio of Jin Wan Kim: housing price analysis, SQL execution plans, predictive modelling, feature engineering and baseline comparison.">
+<title>Jin Wan Kim — Portfolio</title>
+<meta name="description" content="Portfolio of Jin Wan Kim: customer conversion and A/B testing, Visa and Mastercard financial statements, and content safety rating quality, built with Python, SQL, Power BI and Excel.">
 <style>
 :root{
   --ink:#141414;
@@ -66,6 +66,7 @@ h2.section{
 }
 
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.card.feature{grid-column:1/-1}
 .card{
   border:1px solid var(--line);
   border-radius:6px;
@@ -133,7 +134,7 @@ footer a:hover{text-decoration:underline}
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Data Analyst Portfolio</p>
+  <p class="eyebrow">Portfolio</p>
   <h1>Jin Wan Kim</h1>
   <p class="sub">Final-year Bachelor of Computer Science (Artificial Intelligence and Big Data), UOW at SIM Singapore &middot; Graduating March 2027</p>
   <p class="contact">
@@ -142,70 +143,96 @@ footer a:hover{text-decoration:underline}
 </header>
 
 <p class="intro">
-  I’m a final-year Computer Science (Artificial Intelligence and Big Data) student at UOW in Singapore, seeking a data analyst role. I use Python, SQL and Power BI to explore data, compare results and communicate findings. These projects cover housing prices, query plans and predictive modelling, with my contribution described in each repository.
+  I’m a final-year Computer Science (Artificial Intelligence and Big Data) student at UOW in Singapore. I use Python, SQL, Power BI and Excel to explore data, check results and explain what they mean. The three main projects below use public data: an online store’s purchase funnel with an email experiment, Visa and Mastercard financial statements, and the quality of human safety ratings for chatbot conversations.
 </p>
 
 <h2 class="section">Selected projects</h2>
 
 <div class="grid">
 
+  <article class="card feature">
+    <span class="label">Funnel &amp; A/B test</span>
+    <h3>Customer conversion and email experiment</h3>
+    <p class="tech">Python &middot; SQL &middot; statsmodels &middot; Power BI</p>
+    <p class="body">
+      Using event logs from an electronics store, I measured how often shoppers went from view to cart to purchase. Overall, 3.67% of session-product groups completed all three steps in order. For TVs it was 1.34%, a gap worth investigating rather than proof of a page problem. I kept the 41.67% of events with no brand or category under an “Unknown” label instead of dropping them. In a separate randomized email experiment, the Mens-merchandise email raised the purchase rate by 0.6805 percentage points compared with no email, and the Womens-merchandise email by 0.3111 points.
+    </p>
+    <figure>
+      <a class="chart-link" href="images/customer_category_funnel.png" target="_blank" rel="noopener"><img src="images/customer_category_funnel.png" alt="Power BI page titled Category funnel. Four tiles show 645K eligible session-product groups, 49K carts, 24K ordered purchases and a 3.67% ordered purchase rate. A table lists categories by size: Unknown 2.64%, video cards 6.54%, telephones 4.34%, printers 5.26%, and TVs 1.34%, the lowest rate among the larger categories shown."></a>
+      <figcaption>Ordered purchase rate by first-viewed category. TVs (1.34%) sit well below the overall 3.67%. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
+    </figure>
+    <a class="btn" href="https://github.com/JinWanKim98/customer-conversion-analysis">View project on GitHub</a>
+  </article>
+
   <article class="card">
+    <span class="label">Financial statements</span>
+    <h3>Visa vs Mastercard, FY2021&ndash;2025</h3>
+    <p class="tech">Python &middot; SQL &middot; Excel &middot; Power BI</p>
+    <p class="body">
+      Built from public SEC filings and annual reports. Visa’s FY2025 revenue grew 11.34%, but its operating margin fell 5.69 percentage points to 59.99%. More than half of the cost increase came from a larger litigation provision. In my Excel model, 4% revenue growth with a 56% operating margin would give Visa USD 23,296m in operating income, below the actual USD 23,994m. These are my assumptions, not forecasts.
+    </p>
+    <figure>
+      <a class="chart-link" href="images/payment_performance_trends.png" target="_blank" rel="noopener"><img src="images/payment_performance_trends.png" alt="Power BI page titled Five-Year Performance Trends with two line charts for FY2021 to FY2025. Left: revenue in USD millions rising for both companies, Visa above Mastercard and reaching about 40K in 2025. Right: operating margin, Visa staying around 64 to 66% before dropping to about 60% in 2025, Mastercard rising from about 53% to about 58%."></a>
+      <figcaption>Revenue and operating margin by fiscal year. Visa’s year ends in September and Mastercard’s in December. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
+    </figure>
+    <a class="btn" href="https://github.com/JinWanKim98/payment-financial-analysis">View project on GitHub</a>
+  </article>
+
+  <article class="card">
+    <span class="label">Rating quality &amp; review sampling</span>
+    <h3>Content safety rating quality</h3>
+    <p class="tech">Python &middot; SQL &middot; Power BI</p>
+    <p class="body">
+      Google’s DICES-350 dataset has 350 chatbot conversations, each rated by 123 people. Raters matched the expert safety label in 56.92% of 43,050 judgments. With a budget of 35 conversations for a second review, random selection found on average 10.02% of the judgments that missed unsafe content, while a fixed most-severe-first rule found only 2.90%.
+    </p>
+    <figure>
+      <a class="chart-link" href="images/content_review_sampling.png" target="_blank" rel="noopener"><img src="images/content_review_sampling.png" alt="Power BI page comparing review selection strategies at a budget of 35 conversations. A bar chart shows the share of missed-unsafe judgments captured: oracle ceiling about 30%, uniform random about 10%, mixed about 7%, signal priority about 3%. A table below gives 30.45%, 10.02%, 7.30% and 2.90%."></a>
+      <figcaption>Share of missed-unsafe judgments captured by each selection strategy. The oracle bar assumes the labels are already known. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
+    </figure>
+    <a class="btn" href="https://github.com/JinWanKim98/content-safety-qa-analysis">View project on GitHub</a>
+  </article>
+
+</div>
+
+<h2 class="section more-head">Earlier projects</h2>
+
+<ul class="more">
+  <li>
     <span class="label">Adjusted comparisons</span>
     <h3>Singapore HDB resale analysis</h3>
     <p class="tech">Python &middot; pandas &middot; matplotlib &middot; Power BI</p>
     <p class="body">
       I analysed 216,375 Singapore resale transactions, checking how comparisons change when location and year are taken into account. For 4-room flats, the storey–price slope falls from about SGD 132.8 to SGD 87 per sqm per floor after adjustment for town and year. This is an association, not a causal premium.
     </p>
-    <figure>
-      <a class="chart-link" href="images/price_by_floor.png" target="_blank" rel="noopener"><img src="images/price_by_floor.png" alt="Bar chart of average price per sqm by storey range for 4-room HDB flats, with the number of sales printed above each bar: 15,358 in the lowest band and 14 in the highest. Bars with fewer than 200 sales are grey."></a>
-      <figcaption>Average price per sqm and transaction counts for 4-room flats, before adjustment for town and year. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
-    </figure>
-    <a class="btn" href="https://github.com/JinWanKim98/singapore-hdb-analysis">View project on GitHub</a>
-  </article>
-
-  <article class="card">
+    <a class="plain" href="https://github.com/JinWanKim98/singapore-hdb-analysis">View project on GitHub</a>
+  </li>
+  <li>
     <span class="label">Query plans</span>
     <h3>PostgreSQL tuning, PL/pgSQL and MongoDB</h3>
     <p class="tech">PostgreSQL &middot; PL/pgSQL &middot; MongoDB</p>
     <p class="body">
       I designed indexes for ten course-supplied queries and compared their execution plans before and after. Two retained sequential scans despite the new indexes, reporting the same 7,836 shared buffer accesses on both runs: the index existed, but the planner did not choose it here. The repository also includes PL/pgSQL and MongoDB exercises.
     </p>
-    <a class="btn" href="https://github.com/JinWanKim98/sql-postgres-mongodb">View project on GitHub</a>
-  </article>
-
-  <article class="card">
+    <a class="plain" href="https://github.com/JinWanKim98/sql-postgres-mongodb">View project on GitHub</a>
+  </li>
+  <li>
     <span class="label">Precision&ndash;recall trade-off</span>
     <h3>Predicting late shipments</h3>
     <p class="tech">Python &middot; scikit-learn &middot; Keras</p>
     <p class="body">
       On a 2,200-order test set, Gaussian Naive Bayes flags 582 orders with 95.5% precision; the neural network flags 986 with 78.3% precision. I compared both with a baseline that flags every order. The results show why accuracy alone cannot choose a follow-up strategy: which model fits depends on how many alerts a team can follow up on.
     </p>
-    <figure>
-      <a class="chart-link" href="images/model_comparison.png" target="_blank" rel="noopener"><img src="images/model_comparison.png" alt="Two bar charts. Left: test accuracy for the majority baseline, GaussianNB and the neural network, with a dashed line at the baseline level. Right: recall and precision side by side for each model, the baseline highest on recall and GaussianNB highest on precision."></a>
-      <figcaption>Test accuracy on the same test rows, and the recall&ndash;precision swap between the three models. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
-    </figure>
-    <a class="btn" href="https://github.com/JinWanKim98/shipping-delay-prediction">View project on GitHub</a>
-  </article>
-
-  <article class="card">
+    <a class="plain" href="https://github.com/JinWanKim98/shipping-delay-prediction">View project on GitHub</a>
+  </li>
+  <li>
     <span class="label">Feature engineering</span>
     <h3>Rain in Australia</h3>
     <p class="tech">Python &middot; pandas &middot; scikit-learn</p>
     <p class="body">
       In this four-person project, I handled exploration, cleaning, derived features and preprocessing for 145,460 weather observations; teammates handled modelling. I compared missingness with target association before dropping columns, and made derived features optional for model comparison. Their measured effect was small and mixed across models.
     </p>
-    <figure>
-      <a class="chart-link" href="images/missing_rate_vs_predictive_power.png" target="_blank" rel="noopener"><img src="images/missing_rate_vs_predictive_power.png" alt="Scatter plot of weather columns by percentage of missing values against absolute correlation with RainTomorrow, on training data. Columns missing more than 30% are marked in red: Sunshine, Cloud3pm and Cloud9am sit high on the association axis, while Evaporation sits low."></a>
-      <figcaption>Training-data missing rate against absolute correlation with RainTomorrow. Red points are columns missing more than 30%. <span class="zoom-hint">Open chart at full size (new tab).</span></figcaption>
-    </figure>
-    <a class="btn" href="https://github.com/JinWanKim98/weather-feature-engineering">View project on GitHub</a>
-  </article>
-
-</div>
-
-<h2 class="section more-head">More projects</h2>
-
-<ul class="more">
+    <a class="plain" href="https://github.com/JinWanKim98/weather-feature-engineering">View project on GitHub</a>
+  </li>
   <li>
     <span class="label">Baseline comparison</span>
     <h3>Wine quality regression</h3>
